@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   swap.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/07 17:20:57 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/07 16:55:43 by buiterma      ########   odam.nl         */
+/*   Created: 2022/07/07 16:40:13 by buiterma      #+#    #+#                 */
+/*   Updated: 2022/07/07 16:46:06 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft/include/libft.h"
-
-typedef struct s_stacklists
+/**
+ * @brief Swap the first 2 elements at the top of stack a.
+ * 
+ * @param stack_a 
+ */
+void	swap_a(t_dlist stack_a)
 {
-	t_dlist	*stack_a;
-	t_dlist	*stack_b;
-	int		size;
-}	t_stacklists;
+	
+}
 
-bool			input_check(int argc, char **argv);
-t_stacklists	input_process(int argc, char **argv);
+void	swap_b()
+{
 
-#endif
+}
+
+void	swap_all()
+{
+	
+}

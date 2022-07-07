@@ -20,7 +20,7 @@ CFLAGS		= -Wall -Werror -Wextra
 MAKEFLAGS	= --no-print-directory
 RM			= rm -rf
 MKDIR		= mkdir -p objs
-HEADERS		= -I
+HEADERS		= -I include
 
 #===============================================================================: Sourcefiles
 SRCS		= $(addprefix src/, $(addsuffix .c, \
