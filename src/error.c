@@ -1,4 +1,16 @@
-#include "test42_libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   error.c                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/07/07 18:36:36 by buiterma      #+#    #+#                 */
+/*   Updated: 2022/07/07 18:37:48 by buiterma      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
 
 /**
  * Prints an error message to stderr and exits the program   
@@ -9,6 +21,7 @@ void	error(char *error_msg)
 {
 	if (errno)
 		perror("ERROR");
-	dprintf(STDERR_FILENO, RED "Failed to run test: %s\n" RESET, error_msg);
+	else
+		ft_putendl_fd(error_msg, STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }

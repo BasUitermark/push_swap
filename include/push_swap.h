@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:57 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/07 16:55:43 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/07/07 18:55:17 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 
 # include "libft/include/libft.h"
+# include <stdio.h>
+# include <errno.h>
 
 typedef struct s_stacklists
 {
@@ -22,7 +24,9 @@ typedef struct s_stacklists
 	int		size;
 }	t_stacklists;
 
-bool			input_check(int argc, char **argv);
-t_stacklists	input_process(int argc, char **argv);
+int		main(int argc, char const **argv);
+void	error(char *error_msg);
+bool	input_check(int argc, const char **argv);
+t_dlist	*input_parser(const char **argv);
 
 #endif

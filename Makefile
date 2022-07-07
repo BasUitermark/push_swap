@@ -25,6 +25,7 @@ HEADERS		= -I include
 #===============================================================================: Sourcefiles
 SRCS		= $(addprefix src/, $(addsuffix .c, \
 			main \
+			error \
 			input_check \
 			input_parser))
 
