@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_dlstadd_back.c                                  :+:    :+:            */
+/*   ft_dlstsize_i.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/12 12:41:17 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/12 12:41:18 by buiterma      ########   odam.nl         */
+/*   Created: 2022/07/12 13:01:31 by buiterma      #+#    #+#                 */
+/*   Updated: 2022/07/12 13:39:19 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-void	ft_dlstadd_back(t_dlist **lst, t_dlist *new_item)
+int	ft_dlstsize_i(t_dlist_i *lst)
 {
-	t_dlist	*last;
+	t_size	i;
 
-	if (lst && new_item)
+	i = 0;
+	while (lst != NULL)
 	{
-		if (!*lst)
-			*lst = new_item;
-		else
-		{
-			last = ft_dlstlast(*lst);
-			last->next = new_item;
-			new_item->prev = last;
-		}
+		i++;
+		lst = lst->next;
 	}
-	return ;
+	return (i);
 }

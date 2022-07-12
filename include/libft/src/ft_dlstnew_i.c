@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_dlstadd_back.c                                  :+:    :+:            */
+/*   ft_dlstnew_i.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/12 12:41:17 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/12 12:41:18 by buiterma      ########   odam.nl         */
+/*   Created: 2022/07/12 12:36:40 by buiterma      #+#    #+#                 */
+/*   Updated: 2022/07/12 13:39:20 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-void	ft_dlstadd_back(t_dlist **lst, t_dlist *new_item)
+t_dlist_i	*ft_dlstnew_i(int input)
 {
-	t_dlist	*last;
+	t_dlist_i	*head;
 
-	if (lst && new_item)
-	{
-		if (!*lst)
-			*lst = new_item;
-		else
-		{
-			last = ft_dlstlast(*lst);
-			last->next = new_item;
-			new_item->prev = last;
-		}
-	}
-	return ;
+	head = (t_dlist_i *)malloc(sizeof(t_dlist_i));
+	if (head == NULL)
+		return (0);
+	head->num = input;
+	head->next = NULL;
+	head->prev = NULL;
+	return (head);
 }

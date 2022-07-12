@@ -36,6 +36,14 @@ SRCS		= $(addprefix src/, $(addsuffix .c, \
 			ft_dlstlast \
 			ft_dlstnew \
 			ft_dlstsize \
+			ft_dlstadd_back_i \
+			ft_dlstadd_front_i \
+			ft_dlstdel_node_i \
+			ft_dlstfirst_i \
+			ft_dlstinsert_after_i \
+			ft_dlstlast_i \
+			ft_dlstnew_i \
+			ft_dlstsize_i \
 			ft_fprintf \
 			ft_get_next_line \
 			ft_intlen \

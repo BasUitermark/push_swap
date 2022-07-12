@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/03 15:25:47 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/03/09 17:09:12 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/07/12 13:11:52 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,13 @@ typedef struct s_dlist
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 }	t_dlist;
+
+typedef struct s_dlist_i
+{
+	int					num;
+	struct s_dlist_i	*next;
+	struct s_dlist_i	*prev;
+}	t_dlist_i;
 
 typedef struct s_data_store
 {

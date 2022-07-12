@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_dlstadd_back.c                                  :+:    :+:            */
+/*   ft_dlstinsert_after_i.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/12 12:41:17 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/12 12:41:18 by buiterma      ########   odam.nl         */
+/*   Created: 2022/07/12 12:59:26 by buiterma      #+#    #+#                 */
+/*   Updated: 2022/07/12 13:39:27 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-void	ft_dlstadd_back(t_dlist **lst, t_dlist *new_item)
+void	ft_dlstinsert_after_i(t_dlist_i *prev_node, t_dlist_i *new_item)
 {
-	t_dlist	*last;
-
-	if (lst && new_item)
-	{
-		if (!*lst)
-			*lst = new_item;
-		else
-		{
-			last = ft_dlstlast(*lst);
-			last->next = new_item;
-			new_item->prev = last;
-		}
-	}
-	return ;
+	if (prev_node == NULL)
+		return ;
+	new_item->next = prev_node->next;
+	prev_node->next = new_item;
+	new_item->prev = prev_node;
+	if (new_item->next != NULL)
+		new_item->next->prev = new_item;
 }

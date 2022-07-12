@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_dlstadd_back.c                                  :+:    :+:            */
+/*   ft_dlstdel_node_i.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/12 12:41:17 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/12 12:41:18 by buiterma      ########   odam.nl         */
+/*   Created: 2022/07/12 12:56:59 by buiterma      #+#    #+#                 */
+/*   Updated: 2022/07/12 13:39:28 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-void	ft_dlstadd_back(t_dlist **lst, t_dlist *new_item)
+void	ft_dlstdel_node_i(t_dlist_i **lst, t_dlist_i *del_node)
 {
-	t_dlist	*last;
-
-	if (lst && new_item)
-	{
-		if (!*lst)
-			*lst = new_item;
-		else
-		{
-			last = ft_dlstlast(*lst);
-			last->next = new_item;
-			new_item->prev = last;
-		}
-	}
+	if (*lst == NULL || del_node == NULL)
+		return ;
+	if (*lst == del_node)
+		*lst = del_node->next;
+	if (del_node->next != NULL)
+		del_node->next->prev = del_node->prev;
+	if (del_node ->prev != NULL)
+		del_node->prev->next = del_node->next;
+	free(del_node);
 	return ;
 }

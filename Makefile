@@ -19,7 +19,7 @@ CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra
 MAKEFLAGS	= --no-print-directory
 RM			= rm -rf
-MKDIR		= mkdir -p objs
+MKDIR		= mkdir -p
 HEADERS		= -I include
 
 #===============================================================================: Sourcefiles
@@ -27,7 +27,10 @@ SRCS		= $(addprefix src/, $(addsuffix .c, \
 			main \
 			error \
 			input_check \
-			input_parser))
+			input_parser \
+			$(addprefix actions/, \
+			swap \
+			push)))
 
 #===============================================================================: Make commands
 all: libft message $(NAME)
@@ -43,7 +46,8 @@ $(NAME): $(OBJS)
 
 #===============================================================================: C file compile
 objs/%.o: src/%.c
-	@$(MKDIR)
+	@$(MKDIR) objs
+	@$(MKDIR) objs/actions
 	@$(CC) -o $@ -c $< $(HEADERS)
 ifeq ($(DB),1)
 	@printf "$(GREEN)\r🔨Compiling: $(MAGENTA)$(notdir $<)$(GREEN)\r\e[35C[OK]\n$(RESET)"
