@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/07 16:40:13 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/12 17:28:23 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/07/13 17:25:12 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,26 @@
  * 
  * @param stack The stack in which to swap the values.
  */
+// void	swap(t_dlist_i **stack)
+// {
+// 	int	temp;
+
+// 	if (ft_dlstsize_i(*stack) < 2)
+// 		error("Not enough data to process command!");
+// 	temp = (*stack)->num;
+// 	(*stack)->num = (*stack)->next->num;
+// 	(*stack)->next->num = temp;
+// }
+
 void	swap(t_dlist_i **stack)
 {
-	int	temp;
+	t_dlist_i	*temp;
 
-	if (ft_dlstsize_i(*stack) < 2)
+	if (ft_dlstsize_i((*stack) < 2))
 		error("Not enough data to process command!");
-	temp = (*stack)->num;
-	(*stack)->num = (*stack)->next->num;
-	(*stack)->next->num = temp;
+	temp = (*stack)->next;
+	(*stack) = (*stack)->next;
+	(*stack)->next = temp;
 }
 
 /**
