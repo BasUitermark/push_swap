@@ -77,7 +77,6 @@ SRCS		= $(addprefix src/, $(addsuffix .c, \
 			ft_neg \
 			ft_pos \
 			ft_printcarray \
-			ft_printiarray \
 			ft_printlist \
 			ft_printdlist \
 			ft_printf \

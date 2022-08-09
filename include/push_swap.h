@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:57 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/12 16:48:55 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/09 16:22:44 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,31 @@
 
 typedef struct s_stacklists
 {
-	t_dlist_i	*stack_a;
-	t_dlist_i	*stack_b;
-	int			size;
+	int	*stack_a;
+	int	*stack_b;
+	int	size;
 }	t_stacklists;
 
-int			main(int argc, char const **argv);
-void		error(char *error_msg);
-void		input_check(int argc, const char **argv);
-t_dlist_i	*input_parser(const char **argv, int *size);
+int		main(int argc, char const **argv);
+void	error(char *error_msg);
+void	input_check(int argc, const char **argv);
+void	input_parser(const char **argv, t_stacklists stacks);
+void	push_swap(t_stacklists stacks);
 
-void		swap(t_dlist_i **stack);
-void		swap_all(t_dlist_i *stack_a, t_dlist_i *stack_b);
+void	push_a(t_stacklists stacks);
+void	push_b(t_stacklists stacks);
 
-void		push(t_dlist_i **src, t_dlist_i **dest);
+void	swap_a(t_stacklists stacks);
+void	swap_b(t_stacklists stacks);
+void	swap_all(t_stacklists stacks);
+
+void	rotate_a(t_stacklists stacks);
+void	rotate_b(t_stacklists stacks);
+void	rotate_all(t_stacklists stacks);
+
+void	reverse_rotate_a(t_stacklists stacks);
+void	reverse_rotate_b(t_stacklists stacks);
+void	reverse_rotate_all(t_stacklists stacks);
+
+void	ft_printiarray(int *array, int size);
 #endif

@@ -6,19 +6,31 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:47 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/13 17:21:45 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/09 15:41:03 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_printdlst_i(t_dlist_i *list)
+void	ft_printiarray(int *array, int size)
 {
-	while (list != NULL)
+	size_t	i;
+
+	i = 0;
+	while (i < size)
 	{
-		ft_printf("%d\n", list->num);
-		list = list->next;
+		if (array[i])
+			ft_printf("%d\n", array[i]);
+		i++;
 	}
+	write(1, "\n", 1);
+}
+
+static void	init_stacks(t_stacklists *stacks, int argc)
+{
+	stacks->stack_a = ft_calloc(argc, sizeof(int));
+	stacks->stack_b = ft_calloc(argc, sizeof(int));
+	stacks->size = argc;
 }
 
 int	main(int argc, char const **argv)
@@ -26,15 +38,10 @@ int	main(int argc, char const **argv)
 	t_stacklists	stacks;
 
 	input_check(argc, argv);
-	stacks.stack_a = input_parser(argv, &stacks.size);
-	stacks.stack_b = NULL;
-	swap(&stacks.stack_a);
-	// swap_all(stacks.stack_a, stacks.stack_b);
-	// push(&stacks.stack_a, &stacks.stack_b);
-	// push(&stacks.stack_a, &stacks.stack_b);
-	printf("Stack 1\n");
-	ft_printdlst_i(stacks.stack_a);
-	printf("Stack 2\n");
-	ft_printdlst_i(stacks.stack_b);
+	init_stacks(&stacks, argc - 1);
+	input_parser(&argv[1], stacks);
+	push_swap(stacks);
+	ft_printiarray(stacks.stack_a, stacks.size);
+	// ft_printiarray(stacks.stack_b, stacks.size);
 	exit(EXIT_SUCCESS);
 }

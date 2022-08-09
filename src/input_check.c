@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:50 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/12 15:15:36 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/09 16:48:50 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	content_check(int argc, const char **argv)
 void	input_check(int argc, const char **argv)
 {
 	if (argc < 2)
-		error("Incorrect number of arguments!");
+		error("Error");
 	if (!content_check(argc, argv))
-		error("Received incorrect input!");
+		error("Error");
 }

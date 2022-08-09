@@ -6,17 +6,44 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/12 16:15:26 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/13 17:11:25 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/09 16:16:44 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_dlist_i **src, t_dlist_i **dest)
+static void	push(int *src, int *dest, int size)
 {
-	t_dlist_i	*temp;
+	int	i;
+	int	len;
 
-	temp = *src;
-	ft_dlstadd_front_i(dest, temp);
-	// ft_dlstdel_node_i(src, *src);
+	i = 0;
+	len = size;
+	if (dest[0])
+	{
+		while (len > 0)
+		{
+			dest[len] = dest[len - 1];
+			len--;
+		}
+	}
+	dest[i] = src[i];
+	while (i < size)
+	{
+		src[i] = src[i + 1];
+		i++;
+	}
+	src[i - 1] = 0;
+}
+
+void	push_a(t_stacklists stacks)
+{
+	ft_printf("pa\n");
+	push(stacks.stack_b, stacks.stack_a, stacks.size);
+}
+
+void	push_b(t_stacklists stacks)
+{
+	ft_printf("pb\n");
+	push(stacks.stack_a, stacks.stack_b, stacks.size);
 }

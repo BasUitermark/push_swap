@@ -6,47 +6,39 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/07 16:40:13 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/13 17:25:12 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/09 16:19:59 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/**
- * @brief Swap the first 2 elements at the top of the stack.
- * 
- * @param stack The stack in which to swap the values.
- */
-// void	swap(t_dlist_i **stack)
-// {
-// 	int	temp;
-
-// 	if (ft_dlstsize_i(*stack) < 2)
-// 		error("Not enough data to process command!");
-// 	temp = (*stack)->num;
-// 	(*stack)->num = (*stack)->next->num;
-// 	(*stack)->next->num = temp;
-// }
-
-void	swap(t_dlist_i **stack)
+static int	swap(int *stack)
 {
-	t_dlist_i	*temp;
+	int	temp;
 
-	if (ft_dlstsize_i((*stack) < 2))
-		error("Not enough data to process command!");
-	temp = (*stack)->next;
-	(*stack) = (*stack)->next;
-	(*stack)->next = temp;
+	if (stack[1] == 0)
+		return (0);
+	temp = stack[0];
+	stack[0] = stack[1];
+	stack[1] = temp;
+	return (1);
 }
 
-/**
- * @brief Swaps the first 2 elements at the top of each stack.
- * 
- * @param stack_a The stack in which to swap the values.
- * @param stack_b The stack in which to swap the values.
- */
-void	swap_all(t_dlist_i *stack_a, t_dlist_i *stack_b)
+void	swap_a(t_stacklists stacks)
 {
-	swap(&stack_a);
-	swap(&stack_b);
+	ft_printf("sa\n");
+	swap(stacks.stack_a);
+}
+
+void	swap_b(t_stacklists stacks)
+{
+	ft_printf("sb\n");
+	swap(stacks.stack_b);
+}
+
+void	swap_all(t_stacklists stacks)
+{
+	ft_printf("ss\n");
+	swap(stacks.stack_a);
+	swap(stacks.stack_b);
 }

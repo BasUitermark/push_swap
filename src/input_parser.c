@@ -6,45 +6,55 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:53 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/07/12 15:10:56 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/09 17:01:05 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_freedlst_i(t_dlist_i *list)
+static void	free_arrays(t_stacklists stacks)
 {
-	//free shit here
+	free(stacks.stack_a);
+	free(stacks.stack_b);
 }
 
-static t_dlist_i	*ft_fill_dlist(const char **input, int *size)
+static void	check_duplicates(t_stacklists stacks, int size)
 {
-	t_dlist_i	*stack_a;
-	t_dlist_i	*new;
-	size_t		i;
+	int	i;
+	int	j;
 
-	i = 1;
-	stack_a = NULL;
-	while (input[i])
+	i = 0;
+	j = 1;
+	while (i < size)
 	{
-		new = ft_dlstnew_i(ft_atoi(input[i]));
-		if (!new)
+		while (j < size)
 		{
-			// if (!stack_a)
-			// 	ft_freedlst_i(stack_a);
-			error("Failed to create list!");
+			if (stacks.stack_b[i] == stacks.stack_a[j])
+			{
+				free_arrays(stacks);
+				error("Error");
+			}
+			j++;
 		}
-		ft_dlstadd_back_i(&stack_a, new);
-		*size += 1;
+		i++;
+		j = i + 1;
+	}
+}
+
+void	input_parser(const char **argv, t_stacklists stacks)
+{
+	size_t	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		stacks.stack_a[i] = ft_atoi(argv[i]);
+		if (stacks.stack_a[i] > INT32_MAX)
+		{
+			free_arrays(stacks);
+			error("Error");
+		}
 		i++;
 	}
-	return (stack_a);
-}
-
-t_dlist_i	*input_parser(const char **argv, int	*size)
-{
-	t_dlist_i	*stack_a;
-
-	stack_a = ft_fill_dlist(argv, size);
-	return (stack_a);
+	check_duplicates(stacks, stacks.size);
 }

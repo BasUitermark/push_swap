@@ -500,7 +500,6 @@ int			ft_printf(const char *str, ...);
 void		ft_printlist(t_list *list);
 void		ft_printdlist(t_dlist *list);
 void		ft_printcarray(char **str);
-void		ft_printiarray(int **array, size_t lines, size_t size);
 int			ft_fprintf(int fd, const char *str, ...);
 
 #endif

@@ -28,9 +28,12 @@ SRCS		= $(addprefix src/, $(addsuffix .c, \
 			error \
 			input_check \
 			input_parser \
+			push_swap \
 			$(addprefix actions/, \
 			swap \
-			push)))
+			push \
+			rotate \
+			reverse_rotate)))
 
 #===============================================================================: Make commands
 all: libft message $(NAME)
@@ -55,6 +58,7 @@ endif
 
 #===============================================================================: Executable run command
 run: all
+	@printf "$(GREEN)Executing $(NAME)!\n$(RESET)\n"
 	@./$(NAME) $(RUN_ARGS)
 
 #===============================================================================: Build messages
