@@ -24,21 +24,24 @@ static int	swap(int *stack)
 	return (1);
 }
 
-void	swap_a(t_stacklists stacks)
+int	swap_a(t_stacklists *stacks)
 {
 	ft_printf("sa\n");
-	swap(stacks.stack_a);
+	swap(stacks->stack_a);
+	return (1);
 }
 
-void	swap_b(t_stacklists stacks)
+int	swap_b(t_stacklists *stacks)
 {
 	ft_printf("sb\n");
-	swap(stacks.stack_b);
+	swap(stacks->stack_b);
+	return (1);
 }
 
-void	swap_all(t_stacklists stacks)
+int	swap_all(t_stacklists *stacks)
 {
 	ft_printf("ss\n");
-	swap(stacks.stack_a);
-	swap(stacks.stack_b);
+	swap(stacks->stack_a);
+	swap(stacks->stack_b);
+	return (1);
 }

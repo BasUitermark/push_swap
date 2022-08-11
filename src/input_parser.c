@@ -16,6 +16,7 @@ static void	free_arrays(t_stacklists stacks)
 {
 	free(stacks.stack_a);
 	free(stacks.stack_b);
+	error("Error");
 }
 
 static void	check_duplicates(t_stacklists stacks, int size)
@@ -29,11 +30,8 @@ static void	check_duplicates(t_stacklists stacks, int size)
 	{
 		while (j < size)
 		{
-			if (stacks.stack_b[i] == stacks.stack_a[j])
-			{
+			if (stacks.stack_a[i] == stacks.stack_a[j])
 				free_arrays(stacks);
-				error("Error");
-			}
 			j++;
 		}
 		i++;
@@ -49,11 +47,8 @@ void	input_parser(const char **argv, t_stacklists stacks)
 	while (argv[i])
 	{
 		stacks.stack_a[i] = ft_atoi(argv[i]);
-		if (stacks.stack_a[i] > INT32_MAX)
-		{
+		if (stacks.stack_a[i] > INT_MAX)
 			free_arrays(stacks);
-			error("Error");
-		}
 		i++;
 	}
 	check_duplicates(stacks, stacks.size);

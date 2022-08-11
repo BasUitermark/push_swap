@@ -27,21 +27,24 @@ static void	rotate(int *stack, int size)
 	stack[i - 1] = temp;
 }
 
-void	rotate_a(t_stacklists stacks)
+int	rotate_a(t_stacklists *stacks)
 {
 	ft_printf("ra\n");
-	rotate(stacks.stack_a, stacks.size);
+	rotate(stacks->stack_a, stacks->size_a);
+	return (1);
 }
 
-void	rotate_b(t_stacklists stacks)
+int	rotate_b(t_stacklists *stacks)
 {
 	ft_printf("rb\n");
-	rotate(stacks.stack_b, stacks.size);
+	rotate(stacks->stack_b, stacks->size_b);
+	return (1);
 }
 
-void	rotate_all(t_stacklists stacks)
+int	rotate_all(t_stacklists *stacks)
 {
 	ft_printf("rr\n");
-	rotate(stacks.stack_a, stacks.size);
-	rotate(stacks.stack_b, stacks.size);
+	rotate(stacks->stack_a, stacks->size_a);
+	rotate(stacks->stack_b, stacks->size_b);
+	return (1);
 }

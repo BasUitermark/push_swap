@@ -19,8 +19,7 @@ void	ft_printiarray(int *array, int size)
 	i = 0;
 	while (i < size)
 	{
-		if (array[i])
-			ft_printf("%d\n", array[i]);
+		ft_printf("%d\n", array[i]);
 		i++;
 	}
 	write(1, "\n", 1);
@@ -30,7 +29,8 @@ static void	init_stacks(t_stacklists *stacks, int argc)
 {
 	stacks->stack_a = ft_calloc(argc, sizeof(int));
 	stacks->stack_b = ft_calloc(argc, sizeof(int));
-	stacks->size = argc;
+	stacks->size_a = argc;
+	stacks->size_b = 0;
 }
 
 int	main(int argc, char const **argv)
@@ -40,8 +40,8 @@ int	main(int argc, char const **argv)
 	input_check(argc, argv);
 	init_stacks(&stacks, argc - 1);
 	input_parser(&argv[1], stacks);
-	push_swap(stacks);
-	ft_printiarray(stacks.stack_a, stacks.size);
-	// ft_printiarray(stacks.stack_b, stacks.size);
+	push_swap(&stacks);
+	ft_printiarray(stacks.stack_a, stacks.size_a);
+	// ft_printiarray(stacks.stack_b, stacks.size_b);
 	exit(EXIT_SUCCESS);
 }

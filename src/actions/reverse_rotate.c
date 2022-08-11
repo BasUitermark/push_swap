@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	reverse_rotate(int *stack, int size)
+static void	reverse_rotate(int *stack, int size)
 {
 	int	i;
 	int	temp;
@@ -27,21 +27,24 @@ void	reverse_rotate(int *stack, int size)
 	stack[0] = temp;
 }
 
-void	reverse_rotate_a(t_stacklists stacks)
+int	reverse_rotate_a(t_stacklists *stacks)
 {
-	ft_printf("rra");
-	reverse_rotate(stacks.stack_a, stacks.size);
+	ft_printf("rra\n");
+	reverse_rotate(stacks->stack_a, stacks->size_a);
+	return (1);
 }
 
-void	reverse_rotate_b(t_stacklists stacks)
+int	reverse_rotate_b(t_stacklists *stacks)
 {
-	ft_printf("rrb");
-	reverse_rotate(stacks.stack_b, stacks.size);
+	ft_printf("rrb\n");
+	reverse_rotate(stacks->stack_b, stacks->size_b);
+	return (1);
 }
 
-void	reverse_rotate_all(t_stacklists stacks)
+int	reverse_rotate_all(t_stacklists *stacks)
 {
-	ft_printf("rrr");
-	reverse_rotate(stacks.stack_a, stacks.size);
-	reverse_rotate(stacks.stack_b, stacks.size);
+	ft_printf("rrr\n");
+	reverse_rotate(stacks->stack_a, stacks->size_a);
+	reverse_rotate(stacks->stack_b, stacks->size_b);
+	return (1);
 }

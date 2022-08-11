@@ -19,6 +19,8 @@ bool	content_check(int argc, const char **argv)
 
 	i = 1;
 	j = 0;
+	if (argc < 2)
+		return (FALSE);
 	while (argv[i])
 	{
 		while (argv[i][j])
@@ -35,8 +37,6 @@ bool	content_check(int argc, const char **argv)
 
 void	input_check(int argc, const char **argv)
 {
-	if (argc < 2)
-		error("Error");
 	if (!content_check(argc, argv))
 		error("Error");
 }
