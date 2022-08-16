@@ -25,6 +25,32 @@ static bool	check_sort(t_stacklists *stacks)
 	}
 	return (TRUE);
 }
+static int	radix_sort(t_stacklists *stacks)
+{
+	int	exec;
+	int	i;
+	int	index;
+	int	size;
+
+	size = stacks->size_a;
+	exec = 0;
+	while (!is_sorted(stacks))
+	{
+		i = 0;
+		while (i < size)
+		{
+			if ((stacks->stack_a[0] >> index) & 1)
+				exec += rotate_a(stacks);
+			else
+				exec += push_b(stacks);
+			i++;
+		}
+		while (stacks->size_b > 0)
+			exec += push_a(stacks);
+		index++;
+	}
+	return (exec);
+}
 
 int	push_swap(t_stacklists *stacks)
 {
