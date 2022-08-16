@@ -6,18 +6,20 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/09 15:05:54 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/08/16 08:35:29 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/16 15:24:22 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool	check_sort(t_stacklists *stacks)
+bool	check_sort(t_stacklists *stacks)
 {
 	int	i;
 
 	i = 0;
-	while (i < stacks->size_a)
+	if (stacks->size_a == 1)
+		exit(EXIT_SUCCESS);
+	while (i < stacks->size_a - 1)
 	{
 		if (stacks->stack_a[i] > stacks->stack_a[i + 1])
 			return (FALSE);
@@ -25,6 +27,7 @@ static bool	check_sort(t_stacklists *stacks)
 	}
 	return (TRUE);
 }
+
 static int	radix_sort(t_stacklists *stacks)
 {
 	int	exec;
@@ -34,12 +37,12 @@ static int	radix_sort(t_stacklists *stacks)
 
 	size = stacks->size_a;
 	exec = 0;
-	while (!is_sorted(stacks))
+	while (!check_sort(stacks))
 	{
 		i = 0;
 		while (i < size)
 		{
-			if ((stacks->stack_a[0] >> index) & 1)
+			if ((stacks->index_a[0] >> index) & 1)
 				exec += rotate_a(stacks);
 			else
 				exec += push_b(stacks);
@@ -67,7 +70,7 @@ int	push_swap(t_stacklists *stacks)
 		exec = sort_four(stacks, stacks->stack_a);
 	else if (stacks->size_a == 5)
 		exec = sort_five(stacks, stacks->stack_a);
-	else
+	else if (stacks->size_a > 5)
 		exec = radix_sort(stacks);
 	return (exec);
 }

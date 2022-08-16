@@ -30,7 +30,7 @@ SRCS		= $(addprefix src/, $(addsuffix .c, \
 			input_parser \
 			push_swap \
 			solve_small \
-			$(addprefix actions/, \
+			$(addprefix operations/, \
 			swap \
 			push \
 			rotate \
@@ -51,7 +51,7 @@ $(NAME): $(OBJS)
 #===============================================================================: C file compile
 objs/%.o: src/%.c
 	@$(MKDIR) objs
-	@$(MKDIR) objs/actions
+	@$(MKDIR) objs/operations
 	@$(CC) -o $@ -c $< $(HEADERS)
 ifeq ($(DB),1)
 	@printf "$(GREEN)\r🔨Compiling: $(MAGENTA)$(notdir $<)$(GREEN)\r\e[35C[OK]\n$(RESET)"

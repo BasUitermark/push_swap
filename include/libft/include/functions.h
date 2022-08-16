@@ -103,7 +103,7 @@ void		ft_strtoupper(char *str);
  * @param String to be converted.
  * @return Returns an integer conversion of str.
  */
-int			ft_atoi(const char *str);
+long			ft_atoi(const char *str);
 
 /**
  * Checks the length of the string.

@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:50 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/08/09 16:48:50 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/16 16:50:46 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,26 @@ bool	content_check(int argc, const char **argv)
 {
 	size_t	i;
 	size_t	j;
+	size_t	minus;
 
 	i = 1;
-	j = 0;
-	if (argc < 2)
-		return (FALSE);
 	while (argv[i])
 	{
-		while (argv[i][j])
+		minus = 0;
+		j = -1;
+		while (argv[i][++j])
 		{
-			if (!ft_isdigit(argv[i][j]))
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-')
 				return (FALSE);
-			j++;
+			if (argv[i][j] == '-')
+			{
+				if (ft_strlen(argv[i]) < 2)
+					return (FALSE);
+				minus++;
+			}
 		}
-		j = 0;
+		if (minus > 1)
+			return (FALSE);
 		i++;
 	}
 	return (TRUE);

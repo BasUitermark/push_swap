@@ -1,50 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   rotate.c                                           :+:    :+:            */
+/*   swap.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/18 18:02:10 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/08/09 16:20:33 by buiterma      ########   odam.nl         */
+/*   Created: 2022/07/07 16:40:13 by buiterma      #+#    #+#                 */
+/*   Updated: 2022/08/16 12:16:54 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(int *stack, int size)
+static int	swap(int *stack)
 {
-	int	i;
 	int	temp;
 
-	i = 0;
+	if (stack[1] == 0)
+		return (0);
 	temp = stack[0];
-	while (i < size)
-	{
-		stack[i] = stack[i + 1];
-		i++;
-	}
-	stack[i - 1] = temp;
-}
-
-int	rotate_a(t_stacklists *stacks)
-{
-	ft_printf("ra\n");
-	rotate(stacks->stack_a, stacks->size_a);
+	stack[0] = stack[1];
+	stack[1] = temp;
 	return (1);
 }
 
-int	rotate_b(t_stacklists *stacks)
+int	swap_a(t_stacklists *stacks)
 {
-	ft_printf("rb\n");
-	rotate(stacks->stack_b, stacks->size_b);
+	ft_printf("sa\n");
+	swap(stacks->stack_a);
+	swap(stacks->index_a);
 	return (1);
 }
 
-int	rotate_all(t_stacklists *stacks)
+int	swap_b(t_stacklists *stacks)
 {
-	ft_printf("rr\n");
-	rotate(stacks->stack_a, stacks->size_a);
-	rotate(stacks->stack_b, stacks->size_b);
+	ft_printf("sb\n");
+	swap(stacks->stack_b);
+	swap(stacks->index_b);
+	return (1);
+}
+
+int	swap_all(t_stacklists *stacks)
+{
+	ft_printf("ss\n");
+	swap(stacks->stack_a);
+	swap(stacks->stack_b);
+	swap(stacks->index_a);
+	swap(stacks->index_b);
 	return (1);
 }

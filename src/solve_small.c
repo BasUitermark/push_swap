@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/15 14:37:05 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/08/15 15:20:01 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/16 11:14:36 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int	sort_four(t_stacklists *stacks, int *stack_a)
 	exec = push_b(stacks);
 	exec += sort_three(stacks, stacks->stack_a);
 	exec += push_a(stacks);
+	if (check_sort(stacks))
+		return (exec);
 	stack_a = stacks->stack_a;
 	if (stack_a[0] < stack_a[2])
 		exec += swap_a(stacks);
@@ -118,6 +120,7 @@ int	sort_five(t_stacklists *stacks, int *stack_a)
 		exec += reverse_rotate_a(stacks);
 		exec += reverse_rotate_a(stacks);
 	}
-	exec += sort_five_high(stacks, stack_a);
+	else if (stacks->stack_b[0] < stack_a[3])
+		exec += sort_five_high(stacks, stack_a);
 	return (exec);
 }
