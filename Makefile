@@ -29,6 +29,7 @@ SRCS		= $(addprefix src/, $(addsuffix .c, \
 			input_check \
 			input_parser \
 			push_swap \
+			solve_small \
 			$(addprefix actions/, \
 			swap \
 			push \

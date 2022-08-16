@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:57 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/08/09 16:22:44 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/15 15:23:10 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ int		main(int argc, char const **argv);
 void	error(char *error_msg);
 void	input_check(int argc, const char **argv);
 void	input_parser(const char **argv, t_stacklists stacks);
-void	push_swap(t_stacklists *stacks);
+int		push_swap(t_stacklists *stacks);
+
+int		sort_two(t_stacklists *stacks);
+int		sort_three(t_stacklists *stacks, int *stack_a);
+int		sort_four(t_stacklists *stacks, int *stack_a);
+int		sort_five(t_stacklists *stacks, int *stack_a);
 
 int		push_a(t_stacklists *stacks);
 int		push_b(t_stacklists *stacks);

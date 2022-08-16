@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:53 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/08/09 17:01:05 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/15 11:45:11 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ void	input_parser(const char **argv, t_stacklists stacks)
 			free_arrays(stacks);
 		i++;
 	}
-	check_duplicates(stacks, stacks.size);
+	check_duplicates(stacks, stacks.size_a);
 }

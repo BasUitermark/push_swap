@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:47 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/08/09 15:41:03 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/15 15:23:01 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,15 @@ static void	init_stacks(t_stacklists *stacks, int argc)
 int	main(int argc, char const **argv)
 {
 	t_stacklists	stacks;
+	int				exec;
 
 	input_check(argc, argv);
 	init_stacks(&stacks, argc - 1);
 	input_parser(&argv[1], stacks);
-	push_swap(&stacks);
+	exec = push_swap(&stacks);
 	ft_printiarray(stacks.stack_a, stacks.size_a);
 	// ft_printiarray(stacks.stack_b, stacks.size_b);
+	free(stacks.stack_b);
+	ft_printf("Moves: %d\n\n", exec);
 	exit(EXIT_SUCCESS);
 }
