@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:57 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/08/16 16:50:34 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/08/18 20:12:17 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,23 @@ typedef struct s_stacklists
 	int	size_b;
 }	t_stacklists;
 
+
+//==		Main Functions		=//
 int		main(int argc, char const **argv);
 void	error(char *error_msg);
 void	input_check(int argc, const char **argv);
 void	input_parser(const char **argv, t_stacklists stacks);
-int		push_swap(t_stacklists *stacks);
 bool	check_sort(t_stacklists *stacks);
 void	free_stacks(t_stacklists stacks);
 
+//==		Sorting Functions		=//
 int		sort_two(t_stacklists *stacks);
 int		sort_three(t_stacklists *stacks, int *stack_a);
 int		sort_four(t_stacklists *stacks, int *stack_a);
 int		sort_five(t_stacklists *stacks, int *stack_a);
+int		push_swap(t_stacklists *stacks);
 
+//==		Operations		=//
 int		push_a(t_stacklists *stacks);
 int		push_b(t_stacklists *stacks);
 
