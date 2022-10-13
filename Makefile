@@ -30,6 +30,7 @@ SRCS		= $(addprefix src/, $(addsuffix .c, \
 			input_parser \
 			push_swap \
 			solve_small \
+			utils \
 			$(addprefix operations/, \
 			swap \
 			push \
@@ -38,10 +39,6 @@ SRCS		= $(addprefix src/, $(addsuffix .c, \
 
 #===============================================================================: Make commands
 all: libft message $(NAME)
-ifeq (run,$(firstword $(MAKECMDGOALS)))
-  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-  $(eval $(RUN_ARGS):;@:)
-endif
 
 #===============================================================================: Main compile
 $(NAME): $(OBJS)

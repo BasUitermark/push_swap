@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_memcpy.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/09/14 10:36:02 by buiterma      #+#    #+#                 */
+/*   Updated: 2022/09/14 10:36:02 by buiterma      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)

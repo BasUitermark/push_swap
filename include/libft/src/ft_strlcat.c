@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_strlcat.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/09/14 10:35:30 by buiterma      #+#    #+#                 */
+/*   Updated: 2022/09/14 10:35:30 by buiterma      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/libft.h"
 
 t_size	ft_strlcat(char *dst, const char *src, size_t n)

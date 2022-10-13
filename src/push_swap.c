@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/09 15:05:54 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/08/16 15:24:22 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/09/28 15:56:40 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	check_sort(t_stacklists *stacks)
 	return (TRUE);
 }
 
-static int	radix_sort(t_stacklists *stacks)
+int	radix_sort(t_stacklists *stacks)
 {
 	int	exec;
 	int	i;
@@ -37,6 +37,7 @@ static int	radix_sort(t_stacklists *stacks)
 
 	size = stacks->size_a;
 	exec = 0;
+	index = 0;
 	while (!check_sort(stacks))
 	{
 		i = 0;
@@ -70,7 +71,7 @@ int	push_swap(t_stacklists *stacks)
 		exec = sort_four(stacks, stacks->stack_a);
 	else if (stacks->size_a == 5)
 		exec = sort_five(stacks, stacks->stack_a);
-	else if (stacks->size_a > 5)
+	else
 		exec = radix_sort(stacks);
 	return (exec);
 }

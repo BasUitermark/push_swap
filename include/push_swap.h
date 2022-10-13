@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:57 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/08/18 20:12:17 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/10/03 13:48:08 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ typedef struct s_stacklists
 	int	size_b;
 }	t_stacklists;
 
-
 //==		Main Functions		=//
 int		main(int argc, char const **argv);
+int		radix_sort(t_stacklists *stacks);
 void	error(char *error_msg);
 void	input_check(int argc, const char **argv);
 void	input_parser(const char **argv, t_stacklists stacks);
@@ -60,5 +60,6 @@ int		reverse_rotate_a(t_stacklists *stacks);
 int		reverse_rotate_b(t_stacklists *stacks);
 int		reverse_rotate_all(t_stacklists *stacks);
 
+int		find_lowest(t_stacklists *stacks, int *stack_a);
 void	ft_printiarray(int *array, int size);
 #endif

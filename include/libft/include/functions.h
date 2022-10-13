@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   functions.h                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/09/14 10:39:35 by buiterma      #+#    #+#                 */
+/*   Updated: 2022/09/14 10:39:47 by buiterma      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FUNCTIONS_H
 # define FUNCTIONS_H
 
@@ -103,7 +115,7 @@ void		ft_strtoupper(char *str);
  * @param String to be converted.
  * @return Returns an integer conversion of str.
  */
-long			ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 
 /**
  * Checks the length of the string.

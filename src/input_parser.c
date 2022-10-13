@@ -6,7 +6,7 @@
 /*   By: buiterma <buiterma@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 17:20:53 by buiterma      #+#    #+#                 */
-/*   Updated: 2022/08/16 16:53:21 by buiterma      ########   odam.nl         */
+/*   Updated: 2022/09/14 10:13:56 by buiterma      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ void	input_parser(const char **argv, t_stacklists stacks)
 	{
 		num = ft_atoi(argv[i]);
 		if (num > INT_MAX || num < INT_MIN)
+		{
 			free_stacks(stacks);
+			error("Error");
+		}
 		stacks.stack_a[i] = num;
 		i++;
 	}
